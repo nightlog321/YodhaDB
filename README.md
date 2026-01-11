@@ -57,7 +57,18 @@ python3 python/bitnet_intent_model.py "age equal to 30" | ./ai_cli
 
 <img width="1128" height="116" alt="image" src="https://github.com/user-attachments/assets/42072f27-b44d-49b3-bb5b-77079fc7dc66" />
 
-Future Work
+## Benchmark Results
+
+The following benchmarks compare YodhaDB against SQLite on a 50,000-row dataset
+using equivalent predicates and no secondary indexes.
+<img width="1013" height="224" alt="image" src="https://github.com/user-attachments/assets/c8ba254a-a7d4-4a51-afd8-9554118bf28f" />
+
+These results demonstrate the benefits of columnar execution and zone-map
+pruning for analytical workloads. Measurements were taken on a single machine
+and are intended for qualitative comparison rather than absolute performance claims.
+
+
+**Future Work**
 
  **Adaptive and Learned Metadata**  
   While YodhaDB currently uses static zone-map statistics, future work could
