@@ -1,0 +1,19 @@
+# Binaries
+ai_cli
+test_rg
+bench
+
+# Generated data
+*.ydb
+*.sqlite
+
+# Object files
+*.o
+
+# Python
+__pycache__/
+*.pyc
+
+# Core dumps
+core
+core.*
