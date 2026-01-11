@@ -1,7 +1,40 @@
- YodhaDB
+<img width="1128" height="116" alt="image" src="https://github.com/user-attachments/assets/76cfc2ac-e60f-4cf2-83ee-ebb76cd6976f" /> YodhaDB
 
 A research-oriented columnar storage engine written in C, featuring SIMD-accelerated scans,
 zone-map pruning, and a local AI-assisted query interface.
+
+Defined a new file format:
+For Example,consider a User table with 2 columns:user_key,user_age.In this file format,in persistent storage it would be stored as
+test.ydb
+│
+├── FileHeader
+│
+└── RowGroup 0
+    ├── RowGroupHeader
+    ├── Schema
+    │   ├── user_key  (INT64, PK)
+    │   └── user_age  (INT64)
+    │
+    ├── Column Data
+    │   ├── user_key  → [1, 2, 3, 4, 5]
+    │   └── user_age  → [24, 30, 28, 35, 22]
+    │
+    └── Footer (column offsets)
+    
+Zone-Mapping:
+Each row group:
+1.Has its own schema
+2.Has its own column offsets
+3.Has its own size
+4.Can be skipped or scanned independently.
+
+For each column chunk in a row group, store:
+min_value
+max_value
+So RowGroup 0
+ ├── user_key: min=1,  max=5
+ └── user_age: min=22, max=35
+ These min,max can be used to skip entire row group entirely.
 
 Features
 - Custom columnar file format
@@ -12,6 +45,12 @@ Features
 - Deterministic C execution engine
 
 How to Run:
-
+make clean
+make all
+./test_rg
+./bench
 
 python3 python/bitnet_intent_model.py "age equal to 30" | ./ai_cli
+
+<img width="1128" height="116" alt="image" src="https://github.com/user-attachments/assets/42072f27-b44d-49b3-bb5b-77079fc7dc66" />
+
