@@ -1,4 +1,3 @@
-<img width="1128" height="116" alt="image" src="https://github.com/user-attachments/assets/76cfc2ac-e60f-4cf2-83ee-ebb76cd6976f" /> YodhaDB
 
 A research-oriented columnar storage engine written in C, featuring SIMD-accelerated scans,
 zone-map pruning, and a local AI-assisted query interface.
