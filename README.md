@@ -24,10 +24,12 @@ test.ydb
     
 **Zone-Mapping:**
 Each row group:
+```text
 1.Has its own schema
 2.Has its own column offsets
 3.Has its own size
 4.Can be skipped or scanned independently.
+```
 
 **For each column chunk in a row group, store:**
 min_value
