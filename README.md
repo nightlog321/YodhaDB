@@ -83,7 +83,8 @@ and are intended for qualitative comparison rather than absolute performance cla
   enable more expressive analytical queries without introducing full SQL
   parsing complexity.
 
-- **Memory and Cache-Aware Layouts**  
+- **Memory and Cache-Aware Layouts**
+- I want to use EBPF,Direct memory access(DPDK) to skip system calls and hit the disk directly to extract data.
   Additional exploration of cache-line alignment, prefetching strategies, and
   vectorized execution paths could further improve performance on modern CPUs.
 
