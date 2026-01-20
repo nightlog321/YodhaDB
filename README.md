@@ -85,7 +85,7 @@ and are intended for qualitative comparison rather than absolute performance cla
 
 - **Memory and Cache-Aware Layouts**
   
-  Use EBPF,Direct memory access(DPDK) to skip system calls and hit the disk directly to extract data.
+  Use EBPF,Direct memory access(DMA)/(DPDK) to skip system calls and hit the disk directly to extract data.
   Additional exploration of cache-line alignment, prefetching strategies, and
   vectorized execution paths could further improve performance on modern CPUs.
 
